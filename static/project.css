@@ -1,0 +1,1392 @@
+/* =========================================================
+   PROJECTS PAGE
+   Luxe Interiors
+   ========================================================= */
+
+   /* ================================
+   LUXE INTERIORS LOGO
+================================ */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .logo img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+
+
+/* =========================================================
+   PROJECTS SECTION
+   ========================================================= */
+
+.section:has(.projects-grid) {
+
+    padding-top:
+        45px;
+
+    padding-bottom:
+        90px;
+
+}
+
+
+/* =========================================================
+   PROJECT GRID
+   ========================================================= */
+
+.projects-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        28px;
+
+    width:
+        100%;
+
+    max-width:
+        1200px;
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+
+    position:
+        relative;
+
+    height:
+        430px;
+
+    border-radius:
+        18px;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--card-bg);
+
+    border:
+        1px solid
+        var(--border-light);
+
+    box-shadow:
+        0 15px 35px
+        rgba(70,45,65,0.08);
+
+    cursor:
+        pointer;
+
+    isolation:
+        isolate;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+
+}
+
+
+/* =========================================================
+   PROJECT CARD HOVER
+   ========================================================= */
+
+.project-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 28px 60px
+        rgba(70,45,65,0.18);
+
+    border-color:
+        rgba(183,109,145,0.30);
+
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+   ========================================================= */
+
+.project-image {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.5s ease;
+
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+.project-card:hover .project-image {
+
+    transform:
+        scale(1.08);
+
+    filter:
+        brightness(0.78);
+
+}
+
+
+/* =========================================================
+   PROJECT OVERLAY
+   ========================================================= */
+
+.project-overlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        flex-end;
+
+    padding:
+        32px 28px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(25,18,28,0.92) 0%,
+            rgba(25,18,28,0.68) 35%,
+            rgba(25,18,28,0.18) 70%,
+            transparent 100%
+        );
+
+    color:
+        #ffffff;
+
+    opacity:
+        0.92;
+
+    transition:
+        background 0.45s ease;
+
+}
+
+
+/* =========================================================
+   OVERLAY HOVER
+   ========================================================= */
+
+.project-card:hover .project-overlay {
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(25,18,28,0.96) 0%,
+            rgba(25,18,28,0.72) 40%,
+            rgba(25,18,28,0.20) 75%,
+            transparent 100%
+        );
+
+}
+
+
+/* =========================================================
+   PROJECT CATEGORY
+   ========================================================= */
+
+.project-category {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    padding:
+        6px 12px;
+
+    margin-bottom:
+        10px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,0.14);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.24);
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:
+        background 0.35s ease,
+        transform 0.35s ease;
+
+}
+
+
+.project-card:hover .project-category {
+
+    background:
+        rgba(183,109,145,0.28);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   PROJECT NAME
+   ========================================================= */
+
+.project-name {
+
+    margin:
+        0 0 7px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        1.55rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.25;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   PROJECT LOCATION
+   ========================================================= */
+
+.project-location {
+
+    margin:
+        0 0 18px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+/* =========================================================
+   VIEW CONCEPT BUTTON
+   ========================================================= */
+
+.project-btn {
+
+    align-self:
+        flex-start;
+
+    padding:
+        10px 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius:
+        25px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.8px;
+
+    text-transform:
+        uppercase;
+
+    cursor:
+        pointer;
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+/* =========================================================
+   PROJECT BUTTON HOVER
+   ========================================================= */
+
+.project-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #9e3f70,
+            #8b5fbf
+        );
+
+    border-color:
+        transparent;
+
+    box-shadow:
+        0 10px 24px
+        rgba(158,63,112,0.30);
+
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        9999;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        25px;
+
+    background:
+        rgba(15,10,18,0.78);
+
+    backdrop-filter:
+        blur(10px);
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.35s ease;
+
+}
+
+
+/* =========================================================
+   MODAL ACTIVE
+   ========================================================= */
+
+.modal.active {
+
+    display:
+        flex;
+
+    opacity:
+        1;
+
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.modal-content {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        1000px;
+
+    max-height:
+        90vh;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--card-bg);
+
+    border:
+        1px solid
+        var(--border-light);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,0.30);
+
+    transform:
+        translateY(20px)
+        scale(0.97);
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.modal.active .modal-content {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   MODAL CLOSE
+   ========================================================= */
+
+.modal-close {
+
+    position:
+        absolute;
+
+    top:
+        16px;
+
+    right:
+        18px;
+
+    z-index:
+        10;
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.6rem;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.modal-close:hover {
+
+    transform:
+        rotate(90deg);
+
+    background:
+        rgba(158,63,112,0.85);
+
+}
+
+
+/* =========================================================
+   MODAL BODY
+   ========================================================= */
+
+.modal-body {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+
+    min-height:
+        500px;
+
+}
+
+
+/* =========================================================
+   MODAL IMAGE
+   ========================================================= */
+
+.modal-image {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    min-height:
+        500px;
+
+    object-fit:
+        cover;
+
+}
+
+
+/* =========================================================
+   MODAL DETAILS
+   ========================================================= */
+
+.modal-details {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    padding:
+        48px 42px;
+
+    background:
+        var(--card-bg);
+
+}
+
+
+/* =========================================================
+   MODAL CATEGORY
+   ========================================================= */
+
+.modal-category {
+
+    margin-bottom:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(158,63,112,0.12),
+            rgba(139,95,191,0.12)
+        );
+
+    border-color:
+        rgba(183,109,145,0.20);
+
+    color:
+        #9e3f70;
+
+}
+
+
+/* =========================================================
+   MODAL TITLE
+   ========================================================= */
+
+.modal-title {
+
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        2rem;
+
+    line-height:
+        1.25;
+
+    color:
+        var(--heading);
+
+}
+
+
+/* =========================================================
+   MODAL LOCATION
+   ========================================================= */
+
+.modal-location {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--text-light);
+
+    font-size:
+        0.88rem;
+
+}
+
+
+/* =========================================================
+   MODAL DESCRIPTION
+   ========================================================= */
+
+.modal-description {
+
+    margin:
+        0 0 30px;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   MODAL META
+   ========================================================= */
+
+.modal-meta {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        14px;
+
+}
+
+
+/* =========================================================
+   META ITEM
+   ========================================================= */
+
+.modal-meta-item {
+
+    padding:
+        16px;
+
+    border:
+        1px solid
+        var(--border-light);
+
+    border-radius:
+        12px;
+
+    background:
+        var(--background);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.modal-meta-item:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(183,109,145,0.25);
+
+    box-shadow:
+        0 8px 20px
+        rgba(70,45,65,0.08);
+
+}
+
+
+/* =========================================================
+   META LABEL
+   ========================================================= */
+
+.modal-meta-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--text-light);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.8px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   META VALUE
+   ========================================================= */
+
+.modal-meta-value {
+
+    display:
+        block;
+
+    color:
+        var(--heading);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        600;
+
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+body.dark-theme .project-card {
+
+    background:
+        var(--card-bg);
+
+    border-color:
+        rgba(214,173,98,0.16);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.24);
+
+}
+
+
+body.dark-theme .project-card:hover {
+
+    border-color:
+        rgba(214,173,98,0.35);
+
+    box-shadow:
+        0 28px 60px
+        rgba(0,0,0,0.40);
+
+}
+
+
+/* =========================================================
+   DARK CATEGORY
+   ========================================================= */
+
+body.dark-theme .project-card:hover .project-category {
+
+    background:
+        rgba(214,173,98,0.22);
+
+}
+
+
+/* =========================================================
+   DARK BUTTON
+   ========================================================= */
+
+body.dark-theme .project-btn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #a77d36,
+            #d6ad62
+        );
+
+    box-shadow:
+        0 10px 24px
+        rgba(214,173,98,0.25);
+
+}
+
+
+/* =========================================================
+   DARK MODAL
+   ========================================================= */
+
+body.dark-theme .modal {
+
+    background:
+        rgba(0,0,0,0.82);
+
+}
+
+
+body.dark-theme .modal-content {
+
+    border-color:
+        rgba(214,173,98,0.18);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,0.55);
+
+}
+
+
+body.dark-theme .modal-category {
+
+    background:
+        rgba(214,173,98,0.08);
+
+    border-color:
+        rgba(214,173,98,0.18);
+
+    color:
+        #d6ad62;
+
+}
+
+
+body.dark-theme .modal-meta-item {
+
+    background:
+        rgba(255,255,255,0.03);
+
+    border-color:
+        rgba(255,255,255,0.10);
+
+}
+
+
+body.dark-theme .modal-meta-item:hover {
+
+    border-color:
+        rgba(214,173,98,0.28);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.20);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .projects-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            24px;
+
+    }
+
+
+    .project-card {
+
+        height:
+            410px;
+
+    }
+
+
+    .modal-body {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .section:has(.projects-grid) {
+
+        padding-top:
+            35px;
+
+        padding-bottom:
+            70px;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr;
+
+        max-width:
+            600px;
+
+        gap:
+            25px;
+
+    }
+
+
+    .project-card {
+
+        height:
+            430px;
+
+    }
+
+
+    .modal {
+
+        padding:
+            18px;
+
+    }
+
+
+    .modal-content {
+
+        max-height:
+            92vh;
+
+        overflow-y:
+            auto;
+
+    }
+
+
+    .modal-body {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .modal-image {
+
+        height:
+            300px;
+
+        min-height:
+            300px;
+
+    }
+
+
+    .modal-details {
+
+        padding:
+            35px 28px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .section:has(.projects-grid) {
+
+        padding-top:
+            30px;
+
+        padding-bottom:
+            55px;
+
+    }
+
+
+    .projects-grid {
+
+        gap:
+            20px;
+
+    }
+
+
+    .project-card {
+
+        height:
+            390px;
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .project-overlay {
+
+        padding:
+            25px 22px;
+
+    }
+
+
+    .project-name {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .project-location {
+
+        margin-bottom:
+            15px;
+
+    }
+
+
+    .project-btn {
+
+        padding:
+            9px 17px;
+
+        font-size:
+            0.68rem;
+
+    }
+
+
+    .modal {
+
+        padding:
+            12px;
+
+    }
+
+
+    .modal-content {
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .modal-close {
+
+        top:
+            10px;
+
+        right:
+            10px;
+
+        width:
+            36px;
+
+        height:
+            36px;
+
+    }
+
+
+    .modal-image {
+
+        height:
+            230px;
+
+        min-height:
+            230px;
+
+    }
+
+
+    .modal-details {
+
+        padding:
+            28px 22px;
+
+    }
+
+
+    .modal-title {
+
+        font-size:
+            1.6rem;
+
+    }
+
+
+    .modal-description {
+
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .modal-meta {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .project-card {
+
+        height:
+            360px;
+
+    }
+
+
+    .project-name {
+
+        font-size:
+            1.2rem;
+
+    }
+
+
+    .project-overlay {
+
+        padding:
+            22px 18px;
+
+    }
+
+}
+
+
+/* ========================================
+   NAVBAR LOGO + SHOP NAME POSITION
+   ======================================== */
+
+/* Logo image */
+.navbar .nav-container > .logo:first-child {
+    width: 90px;
+    height: 90px;
+    margin-right: -90px;
+}
+
+/* Luxe Interiors shop name */
+.navbar .nav-container > .logo:nth-of-type(2) {
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    white-space: nowrap;
+}
