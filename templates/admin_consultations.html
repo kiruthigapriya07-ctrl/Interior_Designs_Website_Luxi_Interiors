@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>All Consultations | Luxe Interiors</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body>
+
+<!-- ==============================
+     ADMIN HEADER
+     ============================== -->
+
+<header class="admin-header">
+
+    <div class="admin-header-left">
+
+        <a href="{{ url_for('home') }}"
+           class="logo">
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Luxe Interiors Logo">
+
+        </a>
+
+        <a href="{{ url_for('admin_dashboard') }}"
+           class="admin-brand">
+
+            Luxe<span>Interiors</span>
+
+        </a>
+
+        <span class="admin-badge">
+            ADMIN PANEL
+        </span>
+
+    </div>
+
+    <div class="admin-header-right">
+
+        <span class="admin-welcome">
+            Welcome, {{ session.get('admin_username', 'Admin') }}
+        </span>
+
+        <a href="{{ url_for('admin_logout') }}"
+           class="admin-logout">
+
+            Logout
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ==============================
+     MAIN CONTENT
+     ============================== -->
+
+<main class="admin-dashboard">
+
+    <section class="dashboard-intro">
+
+        <div>
+
+            <span class="dashboard-eyebrow">
+                LUXE INTERIORS
+            </span>
+
+            <h1 class="admin-dashboard-title">
+                All Consultations
+            </h1>
+
+            <p class="admin-dashboard-subtitle">
+                View all customer consultation requests.
+            </p>
+
+        </div>
+
+        <div class="dashboard-date">
+
+            <a href="{{ url_for('admin_dashboard') }}"
+               class="view-all-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CONSULTATIONS
+         ============================== -->
+
+    <section class="admin-panel consultation-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="panel-eyebrow">
+                    CUSTOMER REQUESTS
+                </span>
+
+                <h2>
+                    Consultation Requests
+                </h2>
+
+                <p>
+                    All consultation bookings received by Luxe Interiors.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {% if consultations %}
+
+        <div class="consultation-list">
+
+            {% for consultation in consultations %}
+
+            <article class="consultation-card">
+
+                <!-- Customer -->
+
+                <div class="consultation-top">
+
+                    <div class="customer-info">
+
+                        <div class="customer-avatar">
+
+                            {{ consultation.name[0]|upper }}
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                {{ consultation.name }}
+                            </h3>
+
+                            <p>
+                                Booking #{{ consultation.id }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="status-wrapper">
+
+                        <span class="status-dot
+                            {{ consultation.status|lower|replace('_','-') }}">
+                        </span>
+
+                        <span class="status
+                            {{ consultation.status|lower|replace('_','-') }}">
+
+                            {{ consultation.status|replace('_', ' ')|title }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Customer Details -->
+
+                <div class="customer-details">
+
+                    <!-- Email -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            ✉
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Email
+                            </label>
+
+                            <a href="mailto:{{ consultation.email }}">
+                                {{ consultation.email }}
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            ☎
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Phone
+                            </label>
+
+                            {% if consultation.phone %}
+
+                            <a href="tel:{{ consultation.phone }}">
+                                {{ consultation.phone }}
+                            </a>
+
+                            {% else %}
+
+                            <span class="not-provided">
+                                Not provided
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project Type -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            🏠
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Project Type
+                            </label>
+
+                            <strong>
+                                {{ consultation.project_type or 'Not specified' }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Budget -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            ₹
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Estimated Budget
+                            </label>
+
+                            <strong>
+                                {{ consultation.budget or 'Not specified' }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Preferred Date -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            📅
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Preferred Date
+                            </label>
+
+                            <strong>
+                                {{ consultation.preferred_date or 'Not specified' }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Created Date -->
+
+                    <div class="detail-item">
+
+                        <span class="detail-icon">
+                            🕐
+                        </span>
+
+                        <div>
+
+                            <label>
+                                Booked On
+                            </label>
+
+                            <strong>
+
+                                {{ consultation.created_at.strftime('%d %b %Y, %I:%M %p')
+                                   if consultation.created_at
+                                   else 'N/A' }}
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Message -->
+
+                <div class="customer-message">
+
+                    <label>
+                        Customer Message
+                    </label>
+
+                    <p>
+                        “{{ consultation.message }}”
+                    </p>
+
+                </div>
+
+
+                <!-- Footer -->
+
+                <div class="consultation-footer">
+
+                    <span class="booking-id">
+
+                        Consultation ID:
+
+                        <strong>
+                            #{{ consultation.id }}
+                        </strong>
+
+                    </span>
+
+                    
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <!-- Empty State -->
+
+        <div class="admin-empty">
+
+            <div class="empty-icon">
+                📭
+            </div>
+
+            <h3>
+                No Consultation Requests
+            </h3>
+
+            <p>
+                Customer booking requests will appear here.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+     ============================== -->
+
+<footer class="admin-footer">
+
+    <p>
+        © 2026 Luxe Interiors.
+        All rights reserved.
+    </p>
+
+    <span>
+        Admin Management System
+    </span>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

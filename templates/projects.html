@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Projects | Luxe Interiors</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- Project CSS -->
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/project.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Theme Toggle -->
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Luxe Interiors Logo">
+        </a>
+
+        <!-- Logo -->
+
+        <a href="/" class="logo"> Luxe<span>Interiors</span> </a>
+
+        <!-- Navigation -->
+
+        <ul class="nav-menu">
+          <li>
+            <a href="/" class="nav-link"> Home </a>
+          </li>
+
+          <li>
+            <a href="/about" class="nav-link"> About </a>
+          </li>
+
+          <li>
+            <a href="/services" class="nav-link"> Services </a>
+          </li>
+
+          <li>
+            <a href="/projects" class="nav-link active"> Projects </a>
+          </li>
+
+          <li>
+            <a href="/contact" class="nav-link"> Contact </a>
+          </li>
+
+          <li>
+            <a href="/admin/login" class="nav-link admin-link"> Admin </a>
+          </li>
+
+          <li>
+            <a href="/consultation" class="nav-link btn-consultation">
+              Book a Consultation
+            </a>
+          </li>
+
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            🌙
+          </button>
+        </ul>
+
+        <!-- Mobile Toggle -->
+
+        <div class="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =====================================================
+         PAGE HEADER
+         ===================================================== -->
+
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Our Projects</h1>
+
+        <p class="page-subtitle">
+          Explore our portfolio of exceptional interior designs
+        </p>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         PROJECTS SECTION
+         ===================================================== -->
+
+    <section class="section">
+      <div class="container">
+        <div class="projects-grid">
+          <!-- =================================================
+                     PROJECT 1
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="1"
+            data-project-name="Luxury Villa Interiors"
+            data-project-category="Residential"
+            data-project-location="Mumbai"
+            data-project-description="Complete interior design for a 5BHK luxury villa."
+            data-project-image="{{ url_for('static', filename='images/project.jpg') }}"
+            data-project-area="4500"
+            data-project-date="2025-06-15"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project.jpg') }}"
+              alt="Luxury Villa Interiors"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Residential </span>
+
+              <h3 class="project-name">Luxury Villa Interiors</h3>
+
+              <p class="project-location">Mumbai</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     PROJECT 2
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="2"
+            data-project-name="Corporate Office Space"
+            data-project-category="Commercial"
+            data-project-location="Bangalore"
+            data-project-description="Modern office design for a technology startup."
+            data-project-image="{{ url_for('static', filename='images/project1.jpg') }}"
+            data-project-area="3200"
+            data-project-date="2025-08-20"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project1.jpg') }}"
+              alt="Corporate Office Space"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Commercial </span>
+
+              <h3 class="project-name">Corporate Office Space</h3>
+
+              <p class="project-location">Bangalore</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     PROJECT 3
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="3"
+            data-project-name="Modular Kitchen Premium"
+            data-project-category="Kitchen"
+            data-project-location="Delhi"
+            data-project-description="Premium Italian marble modular kitchen with smart storage solutions."
+            data-project-image="{{ url_for('static', filename='images/project2.jpg') }}"
+            data-project-area="180"
+            data-project-date="2025-05-10"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project2.jpg') }}"
+              alt="Modular Kitchen Premium"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Kitchen </span>
+
+              <h3 class="project-name">Modular Kitchen Premium</h3>
+
+              <p class="project-location">Delhi</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+
+          <!-- ================================================= 
+                     PROJECT 4 
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="4"
+            data-project-name="Modern Apartment Interiors"
+            data-project-category="Residential"
+            data-project-location="Chennai"
+            data-project-description="Complete modern interior design for a stylish 3BHK apartment with elegant finishes and functional spaces."
+            data-project-image="{{ url_for('static', filename='images/project3.jpg') }}"
+            data-project-area="2200"
+            data-project-date="2025-09-12"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project3.jpg') }}"
+              alt="Modern Apartment Interiors"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Residential </span>
+
+              <h3 class="project-name">Modern Apartment Interiors</h3>
+
+              <p class="project-location">Chennai</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+
+          <!-- ================================================= 
+                     PROJECT 5 
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="5"
+            data-project-name="Luxury Bedroom Design"
+            data-project-category="Bedroom"
+            data-project-location="Hyderabad"
+            data-project-description="Elegant luxury bedroom design with premium furniture, ambient lighting and customized storage solutions."
+            data-project-image="{{ url_for('static', filename='images/project4.jpg') }}"
+            data-project-area="450"
+            data-project-date="2025-10-05"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project4.jpg') }}"
+              alt="Luxury Bedroom Design"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Bedroom </span>
+
+              <h3 class="project-name">Luxury Bedroom Design</h3>
+
+              <p class="project-location">Hyderabad</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+
+          <!-- ================================================= 
+                     PROJECT 6 
+                     ================================================= -->
+
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="6"
+            data-project-name="Elegant Dining & Living Space"
+            data-project-category="Residential"
+            data-project-location="Pune"
+            data-project-description="Contemporary dining and living space designed with sophisticated furniture, warm lighting and elegant décor."
+            data-project-image="{{ url_for('static', filename='images/project5.jpg') }}"
+            data-project-area="1600"
+            data-project-date="2025-11-18"
+          >
+            <img
+              src="{{ url_for('static', filename='images/project5.jpg') }}"
+              alt="Elegant Dining & Living Space"
+              class="project-image"
+              loading="lazy"
+            />
+
+            <div class="project-overlay">
+              <span class="project-category"> Residential </span>
+
+              <h3 class="project-name">Elegant Dining & Living Space</h3>
+
+              <p class="project-location">Pune</p>
+
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PROJECT MODAL
+         ===================================================== -->
+
+    <div class="modal">
+      <div class="modal-content">
+        <!-- Close -->
+
+        <span class="modal-close"> &times; </span>
+
+        <div class="modal-body">
+          <!-- Modal Image -->
+
+          <img src="" alt="Project" class="modal-image" />
+
+          <!-- Modal Details -->
+
+          <div class="modal-details">
+            <span class="project-category modal-category"> Category </span>
+
+            <h3 class="modal-title">Project Name</h3>
+
+            <p class="modal-location">📍 Location</p>
+
+            <p class="modal-description">Description</p>
+
+            <div class="modal-meta">
+              <!-- Area -->
+
+              <div class="modal-meta-item">
+                <span class="modal-meta-label"> Area </span>
+
+                <span class="modal-meta-value modal-area"> 0 sq.ft </span>
+              </div>
+
+              <!-- Completed -->
+
+              <div class="modal-meta-item">
+                <span class="modal-meta-label"> Completed </span>
+
+                <span class="modal-meta-value modal-date"> Date </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- =========================================================
+     09. FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h3 class="logo">
+                    Luxe<span>Interiors</span>
+                </h3>
+
+                <p>
+                    Creating beautiful, functional spaces that
+                    inspire and elevate everyday living.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Facebook">F</a>
+                    <a href="#" aria-label="Instagram">I</a>
+                    <a href="#" aria-label="Pinterest">P</a>
+                    <a href="#" aria-label="LinkedIn">L</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Services</h4>
+
+                <ul>
+                    <li><a href="/services">Residential Design</a></li>
+                    <li><a href="/services">Commercial Design</a></li>
+                    <li><a href="/services">Modular Kitchen</a></li>
+                    <li><a href="/services">Living Room</a></li>
+                    <li><a href="/services">Bedroom Design</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h4>Contact Us</h4>
+
+                <p>📍 123 Design Street, Mumbai 400001</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ hello@luxeinteriors.com</p>
+                <p>🕐 Mon - Sat: 10AM - 7PM</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Luxe Interiors.
+                All rights reserved.
+                | Designed with ♥ in India
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

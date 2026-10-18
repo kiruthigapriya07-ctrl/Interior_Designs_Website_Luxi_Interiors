@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Luxe Interiors</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         MAIN CSS
+         ===================================================== -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+           ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* =====================================================
+           THEME VARIABLES
+           ===================================================== */
+
+        body.admin-login-page {
+
+            --primary: #ffffff;
+
+            --background: #fffafd;
+
+            --background-soft: #fcf7fb;
+
+            --card: rgba(255, 255, 255, 0.96);
+
+            --heading: #292331;
+
+            --text: #665f6c;
+
+            --muted: #958c99;
+
+            --accent: #b86b91;
+
+            --accent-light: #d99ab7;
+
+            --accent-dark: #8f4d70;
+
+            --purple: #8b5fbf;
+
+            --border: rgba(184, 107, 145, 0.22);
+
+            --shadow-small:
+                0 8px 25px rgba(75, 45, 70, 0.08);
+
+            --shadow-medium:
+                0 18px 50px rgba(75, 45, 70, 0.13);
+
+            --shadow-large:
+                0 30px 80px rgba(75, 45, 70, 0.18);
+
+            --gradient:
+                linear-gradient(
+                    135deg,
+                    #9e3f70,
+                    #8b5fbf
+                );
+
+            --gradient-soft:
+                linear-gradient(
+                    135deg,
+                    #fffafd,
+                    #f3eef9
+                );
+
+            font-family: "Lato", sans-serif;
+
+            background:
+                var(--background);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            overflow-x:
+                hidden;
+        }
+
+
+
+        /* =====================================================
+           DARK THEME
+           ===================================================== */
+
+        body.admin-login-page.dark-theme {
+
+            --primary: #0d1726;
+
+            --background: #09111d;
+
+            --background-soft: #0e1a2a;
+
+            --card: rgba(18, 34, 56, 0.97);
+
+            --heading: #f5f2eb;
+
+            --text: #c6ced8;
+
+            --muted: #8995a5;
+
+            --accent: #d6ad62;
+
+            --accent-light: #f0d49a;
+
+            --accent-dark: #a77d36;
+
+            --purple: #d6ad62;
+
+            --border: rgba(214, 173, 98, 0.22);
+
+            --gradient:
+                linear-gradient(
+                    135deg,
+                    #a77d36,
+                    #d6ad62
+                );
+
+            --gradient-soft:
+                linear-gradient(
+                    135deg,
+                    #0d1726,
+                    #14253b
+                );
+
+            --shadow-small:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+
+            --shadow-medium:
+                0 18px 50px rgba(0, 0, 0, 0.35);
+
+            --shadow-large:
+                0 30px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ========================================
+   SHOP NAME - LUXE INTERIORS
+======================================== */
+
+.brand span {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #292330;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+
+    line-height: 1;
+    display: inline-block;
+
+    transition: all 0.4s ease;
+}
+
+/* L letter highlight */
+.brand span::first-letter {
+    color: #b84f78;
+}
+
+/* Hover effect */
+.brand:hover span {
+    color: #b84f78;
+    letter-spacing: 1px;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   MOBILE SHOP NAME
+======================================== */
+
+@media (max-width: 768px) {
+
+    .brand span {
+        font-size: 21px;
+        letter-spacing: 0.3px;
+    }
+
+    .brand:hover span {
+        letter-spacing: 0.6px;
+    }
+}
+
+        /* =====================================================
+           BASIC ELEMENTS
+           ===================================================== */
+
+        body.admin-login-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        body.admin-login-page button,
+        body.admin-login-page input {
+            font-family: inherit;
+        }
+
+
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        body.admin-login-page .navbar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 9999;
+
+            padding: 10px 25px;
+
+            background: transparent;
+
+            box-shadow: none;
+        }
+
+
+        body.admin-login-page .nav-container {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            min-height: 70px;
+
+            margin: 0 auto;
+
+            padding: 8px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.90);
+
+            border:
+                1px solid rgba(158, 63, 112, 0.14);
+
+            border-radius:
+                0 0 28px 28px;
+
+            box-shadow:
+                0 12px 35px rgba(158, 63, 112, 0.08);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+        }
+
+
+        body.admin-login-page.dark-theme .nav-container {
+
+            background:
+                rgba(13, 23, 38, 0.94);
+
+            border-color:
+                rgba(214, 173, 98, 0.18);
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.30);
+        }
+
+
+
+        /* ================================
+   LUXE INTERIORS LOGO
+================================ */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .logo img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+
+        /* =====================================================
+           NAV MENU
+           ===================================================== */
+
+        body.admin-login-page .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 7px;
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+            flex: 1;
+        }
+
+
+        body.admin-login-page .nav-menu li {
+
+            list-style: none;
+        }
+
+
+        body.admin-login-page .nav-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                10px 15px;
+
+            border-radius:
+                25px;
+
+            color:
+                var(--text);
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1.3px;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        body.admin-login-page .nav-link:hover {
+
+            color:
+                white;
+
+            background:
+                var(--gradient);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(158, 63, 112, 0.20);
+        }
+
+
+        body.admin-login-page.dark-theme .nav-link:hover {
+
+            box-shadow:
+                0 8px 20px rgba(214, 173, 98, 0.20);
+        }
+
+
+
+        /* =====================================================
+           THEME TOGGLE
+           ===================================================== */
+
+        body.admin-login-page .theme-toggle {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-left: 5px;
+
+            background:
+                var(--card);
+
+            color:
+                var(--heading);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                50%;
+
+            font-size:
+                1rem;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                var(--shadow-small);
+
+            transition:
+                all 0.35s ease;
+        }
+
+
+        body.admin-login-page .theme-toggle:hover {
+
+            background:
+                var(--gradient);
+
+            color:
+                white;
+
+            border-color:
+                transparent;
+
+            transform:
+                rotate(20deg)
+                scale(1.08);
+        }
+
+
+
+        /* =====================================================
+           MOBILE TOGGLE
+           ===================================================== */
+
+        body.admin-login-page .mobile-toggle {
+
+            display: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            cursor:
+                pointer;
+        }
+
+
+        body.admin-login-page .mobile-toggle span {
+
+            width: 21px;
+
+            height: 2px;
+
+            background:
+                var(--heading);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+
+        /* =====================================================
+           LOGIN MAIN AREA
+           ===================================================== */
+
+        main.admin-login-page {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                140px 25px 70px;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 25%,
+                    rgba(184, 107, 145, 0.13),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(139, 95, 191, 0.10),
+                    transparent 30%
+                ),
+
+                var(--background);
+        }
+
+
+
+        /* =====================================================
+           DECORATIVE CIRCLES
+           ===================================================== */
+
+        main.admin-login-page::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            top: 120px;
+
+            right: -180px;
+
+            border:
+                1px solid rgba(184, 107, 145, 0.20);
+
+            border-radius: 50%;
+
+            animation:
+                loginCircleFloat 8s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+
+        main.admin-login-page::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            bottom: -150px;
+
+            left: -120px;
+
+            border:
+                1px solid rgba(139, 95, 191, 0.18);
+
+            border-radius: 50%;
+
+            animation:
+                loginCircleFloatReverse 10s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+
+
+        /* =====================================================
+           LOGIN CARD
+           ===================================================== */
+
+        .admin-login-card {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 470px;
+
+            padding:
+                45px 42px 38px;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                30px;
+
+            box-shadow:
+                var(--shadow-large);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            overflow: hidden;
+
+            animation:
+                loginCardReveal 0.9s
+                cubic-bezier(.2,.8,.2,1)
+                forwards;
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .admin-login-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background:
+                var(--gradient);
+        }
+
+
+        .admin-login-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-large);
+        }
+
+
+
+        /* =====================================================
+           LOGIN HEADER
+           ===================================================== */
+
+        .admin-login-header {
+
+            text-align: center;
+
+            margin-bottom: 32px;
+        }
+
+
+
+        /* =====================================================
+           LOGIN ICON
+           ===================================================== */
+
+        .admin-login-icon {
+
+            width: 78px;
+
+            height: 78px;
+
+            margin:
+                0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(184, 107, 145, 0.10),
+                    rgba(139, 95, 191, 0.10)
+                );
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                24px;
+
+            font-size:
+                2rem;
+
+            box-shadow:
+                0 10px 30px rgba(158, 63, 112, 0.08);
+
+            animation:
+                iconFloat 4s ease-in-out infinite;
+
+            transition:
+                all 0.35s ease;
+        }
+
+
+        .admin-login-card:hover .admin-login-icon {
+
+            transform:
+                translateY(-3px)
+                rotate(3deg);
+
+            box-shadow:
+                0 15px 35px rgba(158, 63, 112, 0.15);
+        }
+
+
+        body.admin-login-page.dark-theme
+        .admin-login-icon {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(214, 173, 98, 0.10),
+                    rgba(214, 173, 98, 0.04)
+                );
+        }
+
+
+
+        /* =====================================================
+           LOGIN TITLE
+           ===================================================== */
+
+        .admin-login-header h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color:
+                var(--heading);
+
+            font-size:
+                clamp(2rem, 5vw, 2.65rem);
+
+            font-weight:
+                600;
+
+            line-height:
+                1.15;
+
+            margin-bottom:
+                10px;
+
+            letter-spacing:
+                -0.5px;
+        }
+
+
+        .admin-login-header h1::after {
+
+            content: "";
+
+            display: block;
+
+            width: 45px;
+
+            height: 2px;
+
+            margin:
+                13px auto 14px;
+
+            background:
+                var(--gradient);
+
+            border-radius:
+                10px;
+        }
+
+
+        .admin-login-header p {
+
+            color:
+                var(--text);
+
+            font-size:
+                0.92rem;
+
+            line-height:
+                1.7;
+        }
+
+
+
+        /* =====================================================
+           FLASH MESSAGE
+           ===================================================== */
+
+        .admin-message {
+
+            padding:
+                12px 15px;
+
+            margin-bottom:
+                20px;
+
+            border-radius:
+                12px;
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                600;
+
+            text-align:
+                center;
+
+            border:
+                1px solid transparent;
+
+            animation:
+                messageReveal 0.5s ease forwards;
+        }
+
+
+        .admin-message.error {
+
+            color:
+                #9f2946;
+
+            background:
+                rgba(220, 70, 100, 0.08);
+
+            border-color:
+                rgba(220, 70, 100, 0.18);
+        }
+
+
+        .admin-message.success {
+
+            color:
+                #27764c;
+
+            background:
+                rgba(70, 180, 110, 0.08);
+
+            border-color:
+                rgba(70, 180, 110, 0.18);
+        }
+
+
+
+        /* =====================================================
+           FORM GROUP
+           ===================================================== */
+
+        .admin-form-group {
+
+            margin-bottom:
+                21px;
+        }
+
+
+
+        /* =====================================================
+           FORM LABEL
+           ===================================================== */
+
+        .admin-form-label {
+
+            display: block;
+
+            margin-bottom:
+                8px;
+
+            color:
+                var(--heading);
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1.2px;
+        }
+
+
+
+        /* =====================================================
+           FORM INPUT
+           ===================================================== */
+
+        .admin-form-input {
+
+            width: 100%;
+
+            height: 54px;
+
+            padding:
+                0 17px;
+
+            background:
+                var(--background-soft);
+
+            color:
+                var(--heading);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            outline:
+                none;
+
+            font-size:
+                0.92rem;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .admin-form-input::placeholder {
+
+            color:
+                var(--muted);
+
+            opacity:
+                0.8;
+        }
+
+
+        .admin-form-input:hover {
+
+            border-color:
+                var(--accent-light);
+        }
+
+
+        .admin-form-input:focus {
+
+            border-color:
+                var(--accent);
+
+            background:
+                var(--card);
+
+            box-shadow:
+
+                0 0 0 4px
+                rgba(184, 107, 145, 0.10),
+
+                0 8px 20px
+                rgba(184, 107, 145, 0.08);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        body.admin-login-page.dark-theme
+        .admin-form-input:focus {
+
+            box-shadow:
+
+                0 0 0 4px
+                rgba(214, 173, 98, 0.10),
+
+                0 8px 20px
+                rgba(214, 173, 98, 0.08);
+        }
+
+
+
+        /* =====================================================
+           LOGIN BUTTON
+           ===================================================== */
+
+        .admin-login-btn {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 55px;
+
+            margin-top:
+                7px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                var(--gradient);
+
+            color:
+                #ffffff;
+
+            border:
+                none;
+
+            border-radius:
+                16px;
+
+            font-family:
+                "Lato",
+                sans-serif;
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1.2px;
+
+            text-transform:
+                uppercase;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                0 12px 28px rgba(158, 63, 112, 0.22);
+
+            transition:
+                all 0.35s ease;
+        }
+
+
+        .admin-login-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 70%;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.35),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                left 0.7s ease;
+        }
+
+
+        .admin-login-btn:hover::before {
+
+            left:
+                140%;
+        }
+
+
+        .admin-login-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 18px 38px rgba(158, 63, 112, 0.30);
+        }
+
+
+        .admin-login-btn:active {
+
+            transform:
+                translateY(-1px)
+                scale(0.98);
+        }
+
+
+        body.admin-login-page.dark-theme
+        .admin-login-btn {
+
+            box-shadow:
+                0 12px 28px rgba(214, 173, 98, 0.18);
+        }
+
+
+        body.admin-login-page.dark-theme
+        .admin-login-btn:hover {
+
+            box-shadow:
+                0 18px 38px rgba(214, 173, 98, 0.25);
+        }
+
+
+
+        /* =====================================================
+           BACK TO SITE
+           ===================================================== */
+
+        .back-to-site {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top:
+                25px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.82rem;
+
+            font-weight:
+                600;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .back-to-site:hover {
+
+            color:
+                var(--accent);
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        .admin-login-card .back-to-site::before {
+
+            content: "";
+
+            width: 20px;
+
+            height: 1px;
+
+            margin-right: 8px;
+
+            background:
+                var(--border);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .admin-login-card:hover
+        .back-to-site::before {
+
+            width: 28px;
+
+            background:
+                var(--accent);
+        }
+
+
+
+        /* =====================================================
+           ANIMATIONS
+           ===================================================== */
+
+        @keyframes loginCardReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px)
+                    scale(0.97);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes iconFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-7px);
+            }
+        }
+
+
+        @keyframes loginCircleFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0, 0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translate(-25px, 25px)
+                    rotate(8deg);
+            }
+        }
+
+
+        @keyframes loginCircleFloatReverse {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+
+                transform:
+                    translate(25px, -20px);
+            }
+        }
+
+
+        @keyframes messageReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-8px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE - 768px
+           ===================================================== */
+
+        @media (max-width: 768px) {
+
+            body.admin-login-page .navbar {
+
+                padding:
+                    8px 15px;
+            }
+
+
+            body.admin-login-page .nav-container {
+
+                min-height:
+                    64px;
+
+                padding:
+                    7px 15px;
+
+                border-radius:
+                    0 0 22px 22px;
+            }
+
+
+            body.admin-login-page .logo {
+
+                width:
+                    52px;
+
+                height:
+                    52px;
+            }
+
+
+            body.admin-login-page .logo img {
+
+                width:
+                    52px;
+
+                height:
+                    52px;
+            }
+
+
+            body.admin-login-page .nav-menu {
+
+                display:
+                    none;
+            }
+
+
+            body.admin-login-page .mobile-toggle {
+
+                display:
+                    flex;
+            }
+
+
+            main.admin-login-page {
+
+                padding:
+                    120px 20px 55px;
+            }
+
+
+            .admin-login-card {
+
+                max-width:
+                    440px;
+
+                padding:
+                    38px 28px 32px;
+
+                border-radius:
+                    25px;
+            }
+
+
+            .admin-login-icon {
+
+                width:
+                    70px;
+
+                height:
+                    70px;
+
+                font-size:
+                    1.8rem;
+            }
+
+
+            .admin-login-header h1 {
+
+                font-size:
+                    2.15rem;
+            }
+
+
+            main.admin-login-page::before {
+
+                width:
+                    260px;
+
+                height:
+                    260px;
+
+                right:
+                    -160px;
+            }
+
+
+            main.admin-login-page::after {
+
+                width:
+                    220px;
+
+                height:
+                    220px;
+
+                left:
+                    -140px;
+            }
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE - 480px
+           ===================================================== */
+
+        @media (max-width: 480px) {
+
+            body.admin-login-page .navbar {
+
+                padding:
+                    5px 10px;
+            }
+
+
+            body.admin-login-page .nav-container {
+
+                min-height:
+                    60px;
+
+                padding:
+                    6px 12px;
+            }
+
+
+            body.admin-login-page .logo {
+
+                width:
+                    48px;
+
+                height:
+                    48px;
+            }
+
+
+            body.admin-login-page .logo img {
+
+                width:
+                    48px;
+
+                height:
+                    48px;
+            }
+
+
+            body.admin-login-page .theme-toggle {
+
+                width:
+                    39px;
+
+                height:
+                    39px;
+            }
+
+
+            main.admin-login-page {
+
+                min-height:
+                    100svh;
+
+                padding:
+                    105px 15px 40px;
+            }
+
+
+            .admin-login-card {
+
+                padding:
+                    34px 21px 28px;
+
+                border-radius:
+                    23px;
+            }
+
+
+            .admin-login-header {
+
+                margin-bottom:
+                    27px;
+            }
+
+
+            .admin-login-icon {
+
+                width:
+                    64px;
+
+                height:
+                    64px;
+
+                margin-bottom:
+                    16px;
+
+                border-radius:
+                    20px;
+            }
+
+
+            .admin-login-header h1 {
+
+                font-size:
+                    1.95rem;
+            }
+
+
+            .admin-login-header p {
+
+                font-size:
+                    0.84rem;
+            }
+
+
+            .admin-form-input {
+
+                height:
+                    51px;
+
+                border-radius:
+                    13px;
+            }
+
+
+            .admin-login-btn {
+
+                height:
+                    52px;
+
+                border-radius:
+                    14px;
+
+                font-size:
+                    0.72rem;
+            }
+
+
+            main.admin-login-page::before {
+
+                width:
+                    220px;
+
+                height:
+                    220px;
+
+                right:
+                    -130px;
+            }
+
+
+            main.admin-login-page::after {
+
+                width:
+                    180px;
+
+                height:
+                    180px;
+
+                left:
+                    -110px;
+            }
+        }
+
+
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="admin-login-page">
+
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+
+            <!-- LOGO -->
+
+            <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Luxe Interiors Logo">
+        </a>
+        <a href="/" class="logo">Luxe<span>Interiors</span></a>
+
+            <!-- NAVIGATION -->
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="{{ url_for('home') }}"
+                       class="nav-link">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ url_for('about') }}"
+                       class="nav-link">
+                        About
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ url_for('services') }}"
+                       class="nav-link">
+                        Services
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ url_for('projects') }}"
+                       class="nav-link">
+                        Projects
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ url_for('contact') }}"
+                       class="nav-link">
+                        Contact
+                    </a>
+                </li>
+
+
+                <!-- THEME TOGGLE -->
+
+                <li>
+
+                    <button
+                        id="themeToggle"
+                        class="theme-toggle"
+                        type="button"
+                        aria-label="Toggle theme">
+
+                        🌙
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+
+
+            <!-- MOBILE MENU -->
+
+            <div class="mobile-toggle">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         ADMIN LOGIN
+         ===================================================== -->
+
+    <main class="admin-login-page">
+
+
+        <div class="admin-login-card">
+
+
+            <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
+            <div class="admin-login-header">
+
+
+                <div class="admin-login-icon">
+                    🔐
+                </div>
+
+
+                <h1>
+                    Admin Login
+                </h1>
+
+
+                <p>
+                    Login to manage Luxe Interiors
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLASH MESSAGES
+                 ================================================= -->
+
+            {% with messages =
+                get_flashed_messages(with_categories=true) %}
+
+                {% if messages %}
+
+                    {% for category, message in messages %}
+
+                        <div class="admin-message {{ category }}">
+
+                            {{ message }}
+
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endwith %}
+
+
+
+            <!-- =================================================
+                 LOGIN FORM
+                 ================================================= -->
+
+            <form
+                method="POST"
+                action="{{ url_for('admin_login') }}">
+
+
+                <!-- USERNAME -->
+
+                <div class="admin-form-group">
+
+
+                    <label
+                        class="admin-form-label"
+                        for="username">
+
+                        Username
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="admin-form-input"
+                        placeholder="Enter admin username"
+                        autocomplete="username"
+                        required>
+
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="admin-form-group">
+
+
+                    <label
+                        class="admin-form-label"
+                        for="password">
+
+                        Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="admin-form-input"
+                        placeholder="Enter admin password"
+                        autocomplete="current-password"
+                        required>
+
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="admin-login-btn">
+
+                    Login to Dashboard
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 BACK TO WEBSITE
+                 ================================================= -->
+
+            <a
+                href="{{ url_for('home') }}"
+                class="back-to-site">
+
+                ← Back to Luxe Interiors
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
+
+
+</body>
+
+</html>

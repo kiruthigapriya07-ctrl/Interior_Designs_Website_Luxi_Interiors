@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact Us | Luxe Interiors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/contact.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="{{ url_for('home') }}" class="logo">
+          <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Luxe Interiors Logo"
+          />
+        </a>
+
+        <a href="/" class="logo"> Luxe<span>Interiors</span> </a>
+
+        <ul class="nav-menu">
+          <li>
+            <a href="/" class="nav-link">Home</a>
+          </li>
+
+          <li>
+            <a href="/about" class="nav-link">About</a>
+          </li>
+
+          <li>
+            <a href="/services" class="nav-link">Services</a>
+          </li>
+
+          <li>
+            <a href="/projects" class="nav-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="/contact" class="nav-link active">Contact</a>
+          </li>
+
+          <li>
+            <a href="/admin/login" class="nav-link admin-link"> Admin </a>
+          </li>
+
+          <li>
+            <a href="/consultation" class="nav-link btn-consultation">
+              Book a Consultation
+            </a>
+          </li>
+        </ul>
+
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          🌙
+        </button>
+
+        <div class="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================================================
+         PAGE HEADER
+    ========================================================= -->
+
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Contact Us</h1>
+
+        <p class="page-subtitle">Get in touch with our design experts</p>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         CONTACT SECTION
+    ========================================================= -->
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-section">
+          <!-- =================================================
+                     CONTACT INFORMATION
+                ================================================== -->
+
+          <div class="contact-info animate-on-scroll">
+            <h2>Let's Start a Conversation</h2>
+
+            <p style="margin-bottom: 2rem">
+              Have a question or ready to start your project? We're here to
+              help. Reach out to us and we'll respond as soon as possible.
+            </p>
+
+            <!-- ADDRESS -->
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+
+              <div>
+                <h4>Visit Us</h4>
+
+                <p>
+                  123 Design Street, Andheri West<br />
+                  Mumbai, Maharashtra 400001<br />
+                  India
+                </p>
+              </div>
+            </div>
+
+            <!-- PHONE -->
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+
+              <div>
+                <h4>Call Us</h4>
+
+                <p>
+                  +91 98765 43210<br />
+                  +91 22 1234 5678
+                </p>
+              </div>
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉️</div>
+
+              <div>
+                <h4>Email Us</h4>
+
+                <p>
+                  hello@luxeinteriors.com<br />
+                  support@luxeinteriors.com
+                </p>
+              </div>
+            </div>
+
+            <!-- BUSINESS HOURS -->
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🕐</div>
+
+              <div>
+                <h4>Business Hours</h4>
+
+                <p>
+                  Monday - Saturday: 10:00 AM - 7:00 PM<br />
+                  Sunday: By Appointment
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================================================
+                     CONTACT FORM
+                ================================================== -->
+
+          <div class="contact-form-container animate-on-scroll">
+            <h2 style="margin-bottom: 1.5rem">Send Us a Message</h2>
+
+            <form id="contactForm" novalidate>
+              <!-- FULL NAME + EMAIL -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name" required>
+                    Full Name <span>*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                  />
+
+                  <small class="error-message" id="nameError"></small>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">
+                    Email Address <span>*</span>
+                  </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="Enter your email address"
+                    autocomplete="email" required
+                  />
+
+                  <small class="error-message" id="emailError"></small>
+                </div>
+              </div>
+
+              <!-- PHONE + SUBJECT -->
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="phone" required> Phone Number <span>*</span> </label>
+
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-input"
+                    placeholder="Enter 10 digit phone number"
+                    maxlength="10"
+                    autocomplete="tel"
+                    required
+                  />
+
+                  <small class="error-message" id="phoneError"></small>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="subject" required> Subject  <span>*</span></label>
+
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="form-input"
+                    placeholder="Enter subject"
+                    required
+                  />
+
+                  <small class="error-message" id="subjectError"></small>
+                </div>
+              </div>
+
+              <!-- MESSAGE -->
+
+              <div class="form-group">
+                <label class="form-label" for="message" required>
+                  Message <span>*</span>
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  rows="6"
+                  placeholder="Write your message..."
+                ></textarea>
+
+                <small class="error-message" id="messageError"></small>
+              </div>
+
+              <!-- SUBMIT -->
+
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- FOOTER BRAND -->
+
+          <div class="footer-brand">
+            <h3 class="logo" style="color: white; margin-bottom: 1rem">
+              Luxe<span>Interiors</span>
+            </h3>
+
+            <p>
+              Creating beautiful, functional spaces that inspire and elevate
+              everyday living.
+            </p>
+
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"> F </a>
+
+              <a href="#" aria-label="Instagram"> I </a>
+
+              <a href="#" aria-label="Pinterest"> P </a>
+
+              <a href="#" aria-label="LinkedIn"> L </a>
+            </div>
+          </div>
+
+          <!-- QUICK LINKS -->
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+
+            <ul>
+              <li>
+                <a href="/"> Home </a>
+              </li>
+
+              <li>
+                <a href="/about"> About Us </a>
+              </li>
+
+              <li>
+                <a href="/services"> Services </a>
+              </li>
+
+              <li>
+                <a href="/projects"> Projects </a>
+              </li>
+
+              <li>
+                <a href="/contact"> Contact </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SERVICES -->
+
+          <div class="footer-links">
+            <h4>Services</h4>
+
+            <ul>
+              <li>
+                <a href="/services"> Residential Design </a>
+              </li>
+
+              <li>
+                <a href="/services"> Commercial Design </a>
+              </li>
+
+              <li>
+                <a href="/services"> Modular Kitchen </a>
+              </li>
+
+              <li>
+                <a href="/services"> Living Room </a>
+              </li>
+
+              <li>
+                <a href="/services"> Bedroom Design </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- FOOTER CONTACT -->
+
+          <div class="footer-contact">
+            <h4>Contact Us</h4>
+
+            <p>📍 123 Design Street, Mumbai 400001</p>
+
+            <p>📞 +91 98765 43210</p>
+
+            <p>✉️ hello@luxeinteriors.com</p>
+
+            <p>🕐 Mon - Sat: 10AM - 7PM</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Luxe Interiors. All rights reserved. | Designed with ♥
+            in India
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("contactForm");
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const subject = document.getElementById("subject");
+    const message = document.getElementById("message");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const phoneError = document.getElementById("phoneError");
+    const subjectError = document.getElementById("subjectError");
+    const messageError = document.getElementById("messageError");
+
+
+    /* =====================================================
+       CLEAR ERRORS
+    ===================================================== */
+
+    function clearErrors() {
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        phoneError.textContent = "";
+        subjectError.textContent = "";
+        messageError.textContent = "";
+
+        name.classList.remove("input-error");
+        email.classList.remove("input-error");
+        phone.classList.remove("input-error");
+        subject.classList.remove("input-error");
+        message.classList.remove("input-error");
+
+    }
+
+
+    /* =====================================================
+       FORM SUBMIT
+    ===================================================== */
+
+    form.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        clearErrors();
+
+        let isValid = true;
+
+
+        /* =================================================
+           NAME VALIDATION
+        ================================================= */
+
+        const nameValue = name.value.trim();
+
+        if (nameValue === "") {
+
+            nameError.textContent =
+                "Full Name is required.";
+
+            name.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (nameValue.length < 3) {
+
+            nameError.textContent =
+                "Name must contain at least 3 characters.";
+
+            name.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (!/^[A-Za-z\s]+$/.test(nameValue)) {
+
+            nameError.textContent =
+                "Name should contain only letters.";
+
+            name.classList.add("input-error");
+
+            isValid = false;
+
+        }
+
+
+        /* =================================================
+           EMAIL VALIDATION
+        ================================================= */
+
+        const emailValue = email.value.trim();
+
+        const emailPattern =
+            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        if (emailValue === "") {
+
+            emailError.textContent =
+                "Email Address is required.";
+
+            email.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (!emailPattern.test(emailValue)) {
+
+            emailError.textContent =
+                "Please enter a valid email address.";
+
+            email.classList.add("input-error");
+
+            isValid = false;
+
+        }
+
+
+        /* =================================================
+           PHONE VALIDATION
+        ================================================= */
+
+        const phoneValue = phone.value.trim();
+
+        if (phoneValue === "") {
+
+            phoneError.textContent =
+                "Phone number is required.";
+
+            phone.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (!/^[0-9]{10}$/.test(phoneValue)) {
+
+            phoneError.textContent =
+                "Phone number must contain exactly 10 digits.";
+
+            phone.classList.add("input-error");
+
+            isValid = false;
+
+        }
+
+
+        /* =================================================
+           SUBJECT VALIDATION
+        ================================================= */
+
+        const subjectValue = subject.value.trim();
+
+        if (subjectValue === "") {
+
+            subjectError.textContent =
+                "Subject is required.";
+
+            subject.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (subjectValue.length < 3) {
+
+            subjectError.textContent =
+                "Subject must contain at least 3 characters.";
+
+            subject.classList.add("input-error");
+
+            isValid = false;
+
+        }
+
+
+        /* =================================================
+           MESSAGE VALIDATION
+        ================================================= */
+
+        const messageValue = message.value.trim();
+
+        if (messageValue === "") {
+
+            messageError.textContent =
+                "Message is required.";
+
+            message.classList.add("input-error");
+
+            isValid = false;
+
+        }
+        else if (messageValue.length < 10) {
+
+            messageError.textContent =
+                "Message must contain at least 10 characters.";
+
+            message.classList.add("input-error");
+
+            isValid = false;
+
+        }
+
+
+        /* =================================================
+           STOP IF ANY FIELD IS WRONG
+        ================================================= */
+
+        if (!isValid) {
+
+            return;
+
+        }
+
+
+        /* =================================================
+           SEND DATA ONLY IF ALL FIELDS ARE CORRECT
+        ================================================= */
+
+        const formData = {
+
+            name: nameValue,
+            email: emailValue,
+            phone: phoneValue,
+            subject: subjectValue,
+            message: messageValue
+
+        };
+
+
+        try {
+
+            const response = await fetch("/api/contact", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(formData)
+
+            });
+
+
+            const result = await response.json();
+
+
+            if (result.success) {
+
+                alert(
+                    "Your message has been sent successfully!"
+                );
+
+                form.reset();
+
+                clearErrors();
+
+            }
+            else {
+
+                alert(
+                    result.message ||
+                    "Failed to send message."
+                );
+
+            }
+
+
+        }
+        catch (error) {
+
+            console.error(
+                "Contact Error:",
+                error
+            );
+
+            alert(
+                "Unable to send message. Please try again."
+            );
+
+        }
+
+    });
+
+
+    /* =====================================================
+       PHONE - ONLY NUMBERS + MAX 10 DIGITS
+    ===================================================== */
+
+    phone.addEventListener("input", function () {
+
+        this.value = this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+    });
+
+
+    /* =====================================================
+       REMOVE ERROR WHILE TYPING
+    ===================================================== */
+
+    [name, email, phone, subject, message].forEach(
+        function (field) {
+
+            field.addEventListener("input", function () {
+
+                this.classList.remove("input-error");
+
+                const errorMap = {
+
+                    name: nameError,
+                    email: emailError,
+                    phone: phoneError,
+                    subject: subjectError,
+                    message: messageError
+
+                };
+
+                if (errorMap[this.id]) {
+
+                    errorMap[this.id].textContent = "";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+</script>
+  </body>
+</html>

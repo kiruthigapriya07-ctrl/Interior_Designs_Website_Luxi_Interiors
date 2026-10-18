@@ -1,0 +1,1064 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="About Luxe Interiors - Premium Interior Design Studio"
+    >
+
+    <title>About Us | Luxe Interiors</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- About CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/about.css') }}"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Luxe Interiors Logo">
+        </a>
+
+        <a href="/" class="logo">
+            Luxe<span>Interiors</span>
+        </a>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="/" class="nav-link">Home</a>
+            </li>
+
+            <li>
+                <a href="/about" class="nav-link active">About</a>
+            </li>
+
+            <li>
+                <a href="/services" class="nav-link">Services</a>
+            </li>
+
+            <li>
+                <a href="/projects" class="nav-link">Projects</a>
+            </li>
+
+            <li>
+                <a href="/contact" class="nav-link">Contact</a>
+            </li>
+
+            <li>
+    <a href="/admin/login" class="nav-link admin-link">
+        Admin
+    </a>
+</li>
+
+            <li>
+                <a
+                    href="/consultation"
+                    class="nav-link btn-consultation"
+                >
+                    Book a Consultation
+                </a>
+            </li>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+    🌙
+</button>
+
+        </ul>
+
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =========================================================
+     01. ABOUT HEADER
+========================================================= -->
+
+<header class="about-header">
+
+    <div class="about-header-content">
+
+        <span class="section-subtitle">
+            Get To Know Us
+        </span>
+
+        <h1 class="about-header-title">
+            About Us
+        </h1>
+
+        <p class="about-header-description">
+            Crafting exceptional spaces since 2010
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     02. OUR STORY
+     15 YEARS + IMAGE
+========================================================= -->
+
+<section class="about-story-section">
+
+    <div class="container">
+
+        <div class="about-story">
+
+            <!-- TEXT -->
+            <div class="about-story-content animate-on-scroll">
+
+                <span class="section-subtitle">
+                    Our Story
+                </span>
+
+                <h2 class="section-title">
+                    5 Years of Design Excellence
+                </h2>
+
+                <p>
+                    Luxe Interiors is a modern interior design studio focused on creating beautiful and functional spaces.
+                </p>
+
+                <p>
+                    We believe every space should reflect the personality and lifestyle of its users.
+Our designs combine creativity, comfort, and timeless elegance.
+
+                </p>
+
+                <p>
+                    We carefully plan every detail to bring our clients’ ideas to life..
+                </p>
+
+                <p>
+                    From homes to workspaces, we create interiors that are both stylish and practical.
+Our goal is to transform ordinary spaces into inspiring places to live and work.
+                </p>
+
+            </div>
+
+
+            <!-- IMAGE -->
+            <div class="about-story-image animate-on-scroll">
+
+                <img
+                    src="{{ url_for('static', filename='images/about1.jpg') }}"
+                    alt="Luxe Interiors Design"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     03. WHAT DRIVES US
+========================================================= -->
+
+<section class="drives-section">
+
+    <div class="container">
+
+        <div class="section-header animate-on-scroll">
+
+            <span class="section-subtitle">
+                Design Philosophy
+            </span>
+
+            <h2 class="section-title">
+                What Drives Us
+            </h2>
+
+            <p class="section-description">
+                Our design philosophy is built around creativity,
+                functionality, quality and individuality.
+            </p>
+
+        </div>
+
+
+        <div class="drives-grid">
+
+            <!-- CARD 01 -->
+
+            <article class="drives-card animate-on-scroll">
+
+                <div class="drives-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about2.jpg') }}"
+                        alt="Timeless Interior Design"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="drives-content">
+
+                    <div class="drives-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Timeless Design
+                    </h3>
+
+                    <p>
+                        We create spaces that transcend trends,
+                        focusing on classic aesthetics that remain
+                        beautiful for years to come.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 02 -->
+
+            <article class="drives-card animate-on-scroll">
+
+                <div class="drives-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about3.jpg') }}"
+                        alt="Functional Interior Design"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="drives-content">
+
+                    <div class="drives-icon">
+                        ◎
+                    </div>
+
+                    <h3>
+                        Function First
+                    </h3>
+
+                    <p>
+                        Beauty meets functionality. Every design
+                        decision serves a purpose in enhancing your
+                        daily experience.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 03 -->
+
+            <article class="drives-card animate-on-scroll">
+
+                <div class="drives-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about4.jfif') }}"
+                        alt="Sustainable Interior Design"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="drives-content">
+
+                    <div class="drives-icon">
+                        ○
+                    </div>
+
+                    <h3>
+                        Sustainable Choices
+                    </h3>
+
+                    <p>
+                        We prioritize eco-friendly materials and
+                        sustainable practices to minimize environmental
+                        impact.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 04 -->
+
+            <article class="drives-card animate-on-scroll">
+
+                <div class="drives-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about5.webp') }}"
+                        alt="Personalized Interior Design"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="drives-content">
+
+                    <div class="drives-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Personalized Approach
+                    </h3>
+
+                    <p>
+                        Your space should reflect your unique
+                        personality. We tailor every design to match
+                        your individual style.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     04. THE LUXE ADVANTAGE
+========================================================= -->
+
+<section class="advantage-section">
+
+    <div class="container">
+
+        <div class="section-header animate-on-scroll">
+
+            <span class="section-subtitle">
+                Why Choose Us
+            </span>
+
+            <h2 class="section-title">
+                The Luxe Advantage
+            </h2>
+
+            <p class="section-description">
+                Experience premium design with a complete,
+                transparent and professional approach.
+            </p>
+
+        </div>
+
+
+        <div class="advantage-grid">
+
+            <!-- CARD 01 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about9.jpg') }}"
+                        alt="Expert Interior Design Team"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        Expert Team
+                    </h3>
+
+                    <p>
+                        Our designers bring 15+ years of experience
+                        and expertise in creating stunning interiors.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 02 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about10.png') }}"
+                        alt="Interior Design Quality"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Quality Assurance
+                    </h3>
+
+                    <p>
+                        We use premium materials and trusted vendors
+                        to ensure lasting quality.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 03 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about11.jpg') }}"
+                        alt="Interior Project Delivery"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ⏱
+                    </div>
+
+                    <h3>
+                        On-Time Delivery
+                    </h3>
+
+                    <p>
+                        We respect your time and commit to delivering
+                        projects within the agreed timeline.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 04 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about12.png') }}"
+                        alt="Transparent Interior Design Pricing"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ₹
+                    </div>
+
+                    <h3>
+                        Transparent Pricing
+                    </h3>
+
+                    <p>
+                        No hidden costs. Clear and detailed quotes
+                        with complete expense breakdowns.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 05 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about13.jpg') }}"
+                        alt="End to End Interior Design"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ♛
+                    </div>
+
+                    <h3>
+                        End-to-End Service
+                    </h3>
+
+                    <p>
+                        From concept to completion, we handle
+                        everything for a hassle-free experience.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 06 -->
+
+            <article class="advantage-card animate-on-scroll">
+
+                <div class="advantage-image">
+                    <img
+                        src="{{ url_for('static', filename='images/about15.png') }}"
+                        alt="Interior Design Support"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="advantage-content">
+
+                    <div class="advantage-icon">
+                        ♥
+                    </div>
+
+                    <h3>
+                        Post-Completion Support
+                    </h3>
+
+                    <p>
+                        Our commitment does not end at delivery.
+                        We provide ongoing support and maintenance.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     05. OUR PROCESS
+========================================================= -->
+
+<section class="process-section">
+
+    <div class="container">
+
+        <div class="section-header animate-on-scroll">
+
+            <span class="section-subtitle">
+                How We Work
+            </span>
+
+            <h2 class="section-title">
+                Our Process
+            </h2>
+
+            <p class="section-description">
+                A seamless journey from concept to completion.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <!-- STEP 01 -->
+
+            <article class="process-card animate-on-scroll">
+
+                <div class="process-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about1.webp') }}"
+                        alt="Interior Design Consultation"
+                        loading="lazy"
+                    >
+
+                    <span class="process-number">
+                        01
+                    </span>
+
+                </div>
+
+                <div class="process-content">
+
+                    <h3>
+                        Consultation
+                    </h3>
+
+                    <p>
+                        Initial meeting to understand your vision,
+                        requirements and budget.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- STEP 02 -->
+
+            <article class="process-card animate-on-scroll">
+
+                <div class="process-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about14.jpg') }}"
+                        alt="Interior Concept Design"
+                        loading="lazy"
+                    >
+
+                    <span class="process-number">
+                        02
+                    </span>
+
+                </div>
+
+                <div class="process-content">
+
+                    <h3>
+                        Concept Design
+                    </h3>
+
+                    <p>
+                        Creating mood boards, layouts and
+                        3D visualizations.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- STEP 03 -->
+
+            <article class="process-card animate-on-scroll">
+
+                <div class="process-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about16.jpg') }}"
+                        alt="Interior Design Development"
+                        loading="lazy"
+                    >
+
+                    <span class="process-number">
+                        03
+                    </span>
+
+                </div>
+
+                <div class="process-content">
+
+                    <h3>
+                        Development
+                    </h3>
+
+                    <p>
+                        Detailed drawings, material selection and
+                        final approvals.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- STEP 04 -->
+
+            <article class="process-card animate-on-scroll">
+
+                <div class="process-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/about17.jpg') }}"
+                        alt="Interior Design Execution"
+                        loading="lazy"
+                    >
+
+                    <span class="process-number">
+                        04
+                    </span>
+
+                </div>
+
+                <div class="process-content">
+
+                    <h3>
+                        Execution
+                    </h3>
+
+                    <p>
+                        Professional installation and quality
+                        supervision.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     06. STATS
+========================================================= -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-item animate-on-scroll">
+                <h3>
+                    <span class="stat-number" data-target="500">0</span>+
+                </h3>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="stat-item animate-on-scroll">
+                <h3>
+                    <span class="stat-number" data-target="15">0</span>+
+                </h3>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat-item animate-on-scroll">
+                <h3>
+                    <span class="stat-number" data-target="450">0</span>+
+                </h3>
+                <p>Happy Clients</p>
+            </div>
+
+            <div class="stat-item animate-on-scroll">
+                <h3>
+                    <span class="stat-number" data-target="25">0</span>+
+                </h3>
+                <p>Design Awards</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     07. CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <span class="section-subtitle">
+            Start Your Journey
+        </span>
+
+        <h2 class="cta-title animate-on-scroll">
+            Let's Create Something Beautiful
+        </h2>
+
+        <p class="cta-description animate-on-scroll">
+            Ready to transform your space?
+            Get in touch with our team today.
+        </p>
+
+        <a
+            href="/contact"
+            class="btn btn-primary animate-on-scroll"
+        >
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     08. TESTIMONIALS
+========================================================= -->
+
+<section class="testimonials-section">
+
+    <div class="container">
+
+        <div class="section-header animate-on-scroll">
+
+            <span class="section-subtitle">
+                Testimonials
+            </span>
+
+            <h2 class="section-title">
+                What Clients Say
+            </h2>
+
+            <p class="section-description">
+                Real experiences from our valued clients.
+            </p>
+
+        </div>
+
+
+        <div class="testimonials-grid">
+
+            {% if testimonials %}
+
+                {% for testimonial in testimonials[:6] %}
+
+                <article class="testimonial-card animate-on-scroll">
+
+                    <div class="testimonial-rating">
+                        {% for i in range(testimonial.rating) %}
+                            ★
+                        {% endfor %}
+                    </div>
+
+                    <p class="testimonial-text">
+                        "{{ testimonial.testimonial }}"
+                    </p>
+
+                    <p class="testimonial-author">
+                        {{ testimonial.client_name }}
+                    </p>
+
+                    <p class="testimonial-role">
+                        {{ testimonial.client_title }}
+                    </p>
+
+                </article>
+
+                {% endfor %}
+
+            {% else %}
+
+                <article class="testimonial-card animate-on-scroll">
+
+                    <div class="testimonial-rating">
+                        ★★★★★
+                    </div>
+
+                    <p class="testimonial-text">
+                        "Exceptional design quality and attention
+                        to detail. They transformed our home into
+                        a masterpiece."
+                    </p>
+
+                    <p class="testimonial-author">
+                        Rajesh Kumar
+                    </p>
+
+                    <p class="testimonial-role">
+                        Homeowner, Mumbai
+                    </p>
+
+                </article>
+
+
+                <article class="testimonial-card animate-on-scroll">
+
+                    <div class="testimonial-rating">
+                        ★★★★★
+                    </div>
+
+                    <p class="testimonial-text">
+                        "Professional team with innovative ideas.
+                        Our office space now reflects our brand
+                        perfectly."
+                    </p>
+
+                    <p class="testimonial-author">
+                        Priya Sharma
+                    </p>
+
+                    <p class="testimonial-role">
+                        CEO, TechStart Bangalore
+                    </p>
+
+                </article>
+
+
+                <article class="testimonial-card animate-on-scroll">
+
+                    <div class="testimonial-rating">
+                        ★★★★★
+                    </div>
+
+                    <p class="testimonial-text">
+                        "The modular kitchen exceeded our
+                        expectations. Quality craftsmanship and
+                        timely delivery."
+                    </p>
+
+                    <p class="testimonial-author">
+                        Amit Patel
+                    </p>
+
+                    <p class="testimonial-role">
+                        Business Owner, Delhi
+                    </p>
+
+                </article>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     09. FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h3 class="logo">
+                    Luxe<span>Interiors</span>
+                </h3>
+
+                <p>
+                    Creating beautiful, functional spaces that
+                    inspire and elevate everyday living.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Facebook">F</a>
+                    <a href="#" aria-label="Instagram">I</a>
+                    <a href="#" aria-label="Pinterest">P</a>
+                    <a href="#" aria-label="LinkedIn">L</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Services</h4>
+
+                <ul>
+                    <li><a href="/services">Residential Design</a></li>
+                    <li><a href="/services">Commercial Design</a></li>
+                    <li><a href="/services">Modular Kitchen</a></li>
+                    <li><a href="/services">Living Room</a></li>
+                    <li><a href="/services">Bedroom Design</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h4>Contact Us</h4>
+
+                <p>📍 123 Design Street, Mumbai 400001</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ hello@luxeinteriors.com</p>
+                <p>🕐 Mon - Sat: 10AM - 7PM</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Luxe Interiors.
+                All rights reserved.
+                | Designed with ♥ in India
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
+```

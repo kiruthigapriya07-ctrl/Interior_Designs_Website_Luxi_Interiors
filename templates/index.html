@@ -1,1 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium Interior Design Studio - Transforming spaces into beautiful, functional environments"
+    />
+    <title>Luxe Interiors | Premium Interior Design Studio</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"/>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Luxe Interiors Logo">
+        </a>
+        <a href="/" class="logo">Luxe<span>Interiors</span></a>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link active">Home</a></li>
+          <li><a href="/about" class="nav-link">About</a></li>
+          <li><a href="/services" class="nav-link">Services</a></li>
+          <li><a href="/projects" class="nav-link">Projects</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+          <li>
+    <a href="/admin/login" class="nav-link">
+        Admin
+    </a>
+</li>
+          <li>
+            <a href="/consultation" class="nav-link btn-consultation"
+              >Book a Consultation</a
+            >
+          </li>
+        </ul>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+    🌙
+</button>
+        
+
+        <div class="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-subtitle">Welcome to Luxe Interiors</p>
+        <h1 class="hero-title">Transforming Spaces Into Masterpieces</h1>
+        <p class="hero-description">
+          We craft luxurious, functional interiors that reflect your unique
+          style and elevate your living experience.
+        </p>
+        <div class="hero-buttons">
+          <a href="/consultation" class="btn btn-primary">Book Consultation</a>
+          <a href="/projects" class="btn btn-secondary">View Our Work</a>
+        </div>
+      </div>
+      <!-- HERO IMAGE -->
+
+    <div class="hero-image-frame">
+
+        <img
+            src="{{ url_for('static', filename='images/index1.jpg') }}"
+            alt="Luxury Interior Design"
+        />
+    </div>
+    <!-- FLOATING BADGE -->
+
+    <div class="hero-badge">
+        Luxury<br>
+        Interior<br>
+        Design
+    </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="section services-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-subtitle">Our Services</span>
+          <h2 class="section-title">What We Offer</h2>
+          <p class="section-description">
+            Comprehensive interior design solutions tailored to your needs
+          </p>
+        </div>
+
+        <div class="services-grid">
+          {% if services %} {% for service in services[:6] %}
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">✦</div>
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            <p class="service-price">{{ service.price_range }}</p>
+          </div>
+          {% endfor %} {% else %}
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">✦</div>
+            <h3>Residential Interior Design</h3>
+            <p>
+              Complete home interior solutions tailored to your lifestyle and
+              preferences.
+            </p>
+            <p class="service-price">₹1,500 - ₹3,500/sq.ft</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">✦</div>
+            <h3>Commercial Interior Design</h3>
+            <p>
+              Professional workspace designs that enhance productivity and brand
+              identity.
+            </p>
+            <p class="service-price">₹1,200 - ₹2,800/sq.ft</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">✦</div>
+            <h3>Modular Kitchen</h3>
+            <p>
+              Custom-designed modular kitchens with premium finishes and smart
+              storage solutions.
+            </p>
+            <p class="service-price">₹2,00,000 - ₹8,00,000</p>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="/services" class="btn btn-outline">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-subtitle">Our Portfolio</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-description">
+            Explore our latest work and discover the art of exceptional design
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          {% if featured_projects %} {% for project in featured_projects[:6] %}
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="{{ project.id }}"
+            data-project-name="{{ project.name }}"
+            data-project-category="{{ project.category }}"
+            data-project-location="{{ project.location }}"
+            data-project-description="{{ project.description }}"
+            data-project-image="{{ project.image_url }}"
+            data-project-area="{{ project.area_sqft }}"
+            data-project-date="{{ project.completion_date }}"
+          >
+            <img
+              src="{{ url_for('static', filename='images/' + project.image_url) }}"
+              alt="{{ project.name }}"
+              class="project-image"
+              loading="lazy"
+            />
+            <div class="project-overlay">
+              <span class="project-category">{{ project.category }}</span>
+              <h3 class="project-name">{{ project.name }}</h3>
+              <p class="project-location">{{ project.location }}</p>
+              <button class="project-btn">View Concept</button>
+            </div>
+          </div>
+          {% endfor %} {% else %}
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="1"
+            data-project-name="Luxury Villa Interiors"
+            data-project-category="Residential"
+            data-project-location="Mumbai"
+            data-project-description="Complete interior design for a 5BHK luxury villa with modern contemporary aesthetics."
+            data-project-image=""
+            data-project-area="4500"
+            data-project-date="2025-06-15"
+          >
+            <img 
+    src="{{ url_for('static', filename='images/index2.jpg') }}" 
+    alt="Luxury Villa Interiors" 
+    class="project-image" 
+    loading="lazy" 
+/>
+            <div class="project-overlay">
+              <span class="project-category">Residential</span>
+              <h3 class="project-name">Luxury Villa Interiors</h3>
+              <p class="project-location">Mumbai</p>
+            </div>
+          </div>
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="2"
+            data-project-name="Corporate Office Space"
+            data-project-category="Commercial"
+            data-project-location="Bangalore"
+            data-project-description="Modern office design for a tech startup with collaborative workspaces."
+            data-project-image=""
+            data-project-area="3200"
+            data-project-date="2025-08-20"
+          >
+            <img 
+    src="{{ url_for('static', filename='images/index3.jpg') }}" 
+    alt="Luxury Villa Interiors" 
+    class="project-image" 
+    loading="lazy" 
+/>
+            <div class="project-overlay">
+              <span class="project-category">Commercial</span>
+              <h3 class="project-name">Corporate Office Space</h3>
+              <p class="project-location">Bangalore</p>
+            </div>
+          </div>
+          <div
+            class="project-card animate-on-scroll"
+            data-project-id="3"
+            data-project-name="Modular Kitchen Premium"
+            data-project-category="Kitchen"
+            data-project-location="Delhi"
+            data-project-description="Italian marble modular kitchen with smart storage and premium appliances."
+            data-project-image=""
+            data-project-area="180"
+            data-project-date="2025-05-10"
+          >
+            <img 
+    src="{{ url_for('static', filename='images/index4.jpg') }}" 
+    alt="Luxury Villa Interiors" 
+    class="project-image" 
+    loading="lazy" 
+/>
+            <div class="project-overlay">
+              <span class="project-category">Kitchen</span>
+              <h3 class="project-name">Modular Kitchen Premium</h3>
+              <p class="project-location">Delhi</p>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="/projects" class="btn btn-primary">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="section before-after-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-subtitle">Transformation</span>
+          <h2 class="section-title" style="color: white">Before & After</h2>
+          <p
+            class="section-description"
+            style="color: rgba(255, 255, 255, 0.8)"
+          >
+            See the dramatic transformations we create
+          </p>
+        </div>
+
+        <div class="before-after-container animate-on-scroll">
+          <div class="ba-slider">
+
+    <img
+        src="{{ url_for('static', filename='images/index5.png') }}"
+        alt="Before"
+        class="ba-image"
+    >
+
+    <img
+        src="{{ url_for('static', filename='images/index6.png') }}"
+        alt="After"
+        class="ba-image ba-image-after"
+    >
+
+    <div class="ba-slider-handle">
+        <div class="ba-slider-button">↔</div>
+    </div>
+
+</div>
+          </div>
+          <div class="ba-labels">
+            <span class="ba-label">Before</span>
+            <span class="ba-label">After</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item animate-on-scroll">
+            <h3><span class="stat-number" data-target="500">0</span>+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-item animate-on-scroll">
+            <h3><span class="stat-number" data-target="15">0</span>+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat-item animate-on-scroll">
+            <h3><span class="stat-number" data-target="450">0</span>+</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-item animate-on-scroll">
+            <h3><span class="stat-number" data-target="25">0</span>+</h3>
+            <p>Design Awards</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title animate-on-scroll">
+          Ready to Transform Your Space?
+        </h2>
+        <p class="cta-description animate-on-scroll">
+          Book a free consultation with our expert designers and start your
+          journey to a beautiful home.
+        </p>
+        <a href="/consultation" class="btn btn-primary animate-on-scroll"
+          >Book Your Free Consultation</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3 class="logo" style="color: white; margin-bottom: 1rem">
+              Luxe<span>Interiors</span>
+            </h3>
+            <p>
+              Creating beautiful, functional spaces that inspire and elevate
+              everyday living.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook">F</a>
+              <a href="#" aria-label="Instagram">I</a>
+              <a href="#" aria-label="Pinterest">P</a>
+              <a href="#" aria-label="LinkedIn">L</a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/projects">Projects</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="/services">Residential Design</a></li>
+              <li><a href="/services">Commercial Design</a></li>
+              <li><a href="/services">Modular Kitchen</a></li>
+              <li><a href="/services">Living Room</a></li>
+              <li><a href="/services">Bedroom Design</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>📍 123 Design Street, Mumbai 400001</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉️ hello@luxeinteriors.com</p>
+            <p>🕐 Mon - Sat: 10AM - 7PM</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Luxe Interiors. All rights reserved. | Designed with ♥
+            in India
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
