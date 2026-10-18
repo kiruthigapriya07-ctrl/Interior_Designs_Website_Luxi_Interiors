@@ -1,0 +1,911 @@
+/* =========================================================
+   CONSULTATION PAGE
+   Luxe Interiors
+   ========================================================= */
+
+
+/* =========================================================
+   CONSULTATION SECTION
+   ========================================================= */
+
+.section:has(.contact-form-container) {
+
+    padding-top: 45px;
+
+    padding-bottom: 85px;
+
+}
+
+
+/* =========================================================
+   CONSULTATION CONTAINER
+   ========================================================= */
+
+.container-narrow {
+
+    max-width: 950px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+/* =========================================================
+   CONSULTATION FORM CARD
+   ========================================================= */
+
+.contact-form-container {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 48px 50px;
+
+    border-radius: 20px;
+
+    background:
+        var(--card-bg);
+
+    border:
+        1px solid
+        var(--border-light);
+
+    box-shadow:
+        0 15px 40px
+        rgba(70,45,65,0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+}
+
+
+/* =========================================================
+   FORM CARD HOVER
+   ========================================================= */
+
+.contact-form-container:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 28px 60px
+        rgba(70,45,65,0.15);
+
+    border-color:
+        rgba(183,109,145,0.30);
+
+}
+
+
+/* ================================
+   LUXE INTERIORS LOGO
+================================ */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .logo img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+
+
+/* =========================================================
+   DECORATIVE TOP LINE
+   ========================================================= */
+
+.contact-form-container::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9e3f70,
+            #8b5fbf
+        );
+
+}
+
+
+/* =========================================================
+   FORM HEADING
+   ========================================================= */
+
+.contact-form-container h2 {
+
+    position: relative;
+
+    margin-top: 0;
+
+    margin-bottom: 1rem;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        2rem;
+
+    line-height:
+        1.25;
+
+    color:
+        var(--heading);
+
+}
+
+
+/* =========================================================
+   FORM INTRO TEXT
+   ========================================================= */
+
+.contact-form-container > p {
+
+    margin-top: 0;
+
+    margin-bottom: 2rem;
+
+    color:
+        var(--text-light);
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#consultationForm {
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================================
+   FORM ROW
+   ========================================================= */
+
+#consultationForm .form-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        22px;
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+#consultationForm .form-group {
+
+    margin-bottom:
+        22px;
+
+    min-width:
+        0;
+
+}
+
+
+/* =========================================================
+   FORM LABEL
+   ========================================================= */
+
+#consultationForm .form-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--heading);
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.5px;
+
+}
+
+
+/* =========================================================
+   INPUT + SELECT + TEXTAREA
+   ========================================================= */
+
+#consultationForm .form-input,
+#consultationForm .form-select,
+#consultationForm .form-textarea {
+
+    box-sizing:
+        border-box;
+
+    width:
+        100%;
+
+    padding:
+        14px 16px;
+
+    border:
+        1px solid
+        var(--border-light);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.9rem;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+/* =========================================================
+   INPUT HOVER
+   ========================================================= */
+
+#consultationForm .form-input:hover,
+#consultationForm .form-select:hover,
+#consultationForm .form-textarea:hover {
+
+    border-color:
+        rgba(183,109,145,0.35);
+
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+#consultationForm .form-input:focus,
+#consultationForm .form-select:focus,
+#consultationForm .form-textarea:focus {
+
+    border-color:
+        #b76d91;
+
+    background:
+        var(--card-bg);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(183,109,145,0.10);
+
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+#consultationForm .form-select {
+
+    min-height:
+        47px;
+
+    cursor:
+        pointer;
+
+    appearance:
+        auto;
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+   ========================================================= */
+
+#consultationForm .form-select option {
+
+    background:
+        var(--card-bg);
+
+    color:
+        var(--text);
+
+}
+
+
+/* =========================================================
+   DATE INPUT
+   ========================================================= */
+
+#consultationForm input[type="date"] {
+
+    min-height:
+        47px;
+
+    cursor:
+        pointer;
+
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+#consultationForm .form-textarea {
+
+    min-height:
+        155px;
+
+    resize:
+        vertical;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+#consultationForm input::placeholder,
+#consultationForm textarea::placeholder {
+
+    color:
+        rgba(100,90,100,0.55);
+
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+#consultationForm .btn-primary {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        190px;
+
+    padding:
+        14px 32px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9e3f70,
+            #8b5fbf
+        );
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Lato",
+        sans-serif;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(158,63,112,0.18);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+   ========================================================= */
+
+#consultationForm .btn-primary:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 32px
+        rgba(158,63,112,0.30);
+
+}
+
+
+/* =========================================================
+   BUTTON ACTIVE
+   ========================================================= */
+
+#consultationForm .btn-primary:active {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+body.dark-theme .contact-form-container {
+
+    background:
+        var(--card-bg);
+
+    border-color:
+        rgba(214,173,98,0.18);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.22);
+
+}
+
+
+/* =========================================================
+   DARK CARD HOVER
+   ========================================================= */
+
+body.dark-theme .contact-form-container:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(214,173,98,0.35);
+
+    box-shadow:
+        0 28px 60px
+        rgba(0,0,0,0.38);
+
+}
+
+
+/* =========================================================
+   DARK TOP LINE
+   ========================================================= */
+
+body.dark-theme .contact-form-container::before {
+
+    background:
+        linear-gradient(
+            90deg,
+            #a77d36,
+            #d6ad62
+        );
+
+}
+
+
+/* =========================================================
+   DARK INPUTS
+   ========================================================= */
+
+body.dark-theme #consultationForm .form-input,
+body.dark-theme #consultationForm .form-select,
+body.dark-theme #consultationForm .form-textarea {
+
+    background:
+        rgba(255,255,255,0.03);
+
+    border-color:
+        rgba(255,255,255,0.10);
+
+    color:
+        var(--text);
+
+}
+
+
+/* =========================================================
+   DARK INPUT HOVER
+   ========================================================= */
+
+body.dark-theme #consultationForm .form-input:hover,
+body.dark-theme #consultationForm .form-select:hover,
+body.dark-theme #consultationForm .form-textarea:hover {
+
+    border-color:
+        rgba(214,173,98,0.28);
+
+}
+
+
+/* =========================================================
+   DARK INPUT FOCUS
+   ========================================================= */
+
+body.dark-theme #consultationForm .form-input:focus,
+body.dark-theme #consultationForm .form-select:focus,
+body.dark-theme #consultationForm .form-textarea:focus {
+
+    border-color:
+        #d6ad62;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(214,173,98,0.08);
+
+}
+
+
+/* =========================================================
+   DARK SELECT OPTIONS
+   ========================================================= */
+
+body.dark-theme #consultationForm .form-select option {
+
+    background:
+        #2d2330;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   DARK BUTTON
+   ========================================================= */
+
+body.dark-theme #consultationForm .btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #a77d36,
+            #d6ad62
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(214,173,98,0.15);
+
+}
+
+
+/* =========================================================
+   DARK BUTTON HOVER
+   ========================================================= */
+
+body.dark-theme #consultationForm .btn-primary:hover {
+
+    box-shadow:
+        0 15px 32px
+        rgba(214,173,98,0.27);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .section:has(.contact-form-container) {
+
+        padding-top:
+            40px;
+
+        padding-bottom:
+            70px;
+
+    }
+
+
+    .container-narrow {
+
+        max-width:
+            700px;
+
+    }
+
+
+    .contact-form-container {
+
+        padding:
+            38px;
+
+        border-radius:
+            18px;
+
+    }
+
+
+    #consultationForm .form-row {
+
+        gap:
+            18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .section:has(.contact-form-container) {
+
+        padding-top:
+            30px;
+
+        padding-bottom:
+            55px;
+
+    }
+
+
+    .container-narrow {
+
+        width:
+            100%;
+
+    }
+
+
+    .contact-form-container {
+
+        padding:
+            28px 22px;
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .contact-form-container:hover {
+
+        transform:
+            translateY(-4px);
+
+    }
+
+
+    .contact-form-container h2 {
+
+        font-size:
+            1.65rem;
+
+    }
+
+
+    .contact-form-container > p {
+
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    #consultationForm .form-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    #consultationForm .form-group {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    #consultationForm .form-input,
+    #consultationForm .form-select,
+    #consultationForm .form-textarea {
+
+        font-size:
+            0.88rem;
+
+    }
+
+
+    #consultationForm .form-textarea {
+
+        min-height:
+            140px;
+
+    }
+
+
+    #consultationForm .btn-primary {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .contact-form-container {
+
+        padding:
+            25px 18px;
+
+    }
+
+
+    .contact-form-container h2 {
+
+        font-size:
+            1.5rem;
+
+    }
+
+}
